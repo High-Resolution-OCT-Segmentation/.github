@@ -56,9 +56,9 @@ The recommended research workflow is **HROCT Inference → Annotation Framework 
 - [ETDRS & QAF Analysis releases](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App/releases/latest) provide the Windows `.exe` and Linux executable.
 - HROCT Inference must be built from source. Its packaged model and runtime files exceed GitHub's per-file release-asset limit, so the repository provides reproducible Windows and Linux build commands instead of downloadable binaries.
 
-## Building from source: first-time setup
+## Before the first build
 
-Annotation Framework and ETDRS & QAF Analysis can be downloaded above or rebuilt locally. HROCT Inference must be built locally because its packaged files are too large for GitHub Releases. Supported standalone build workflows exist for Windows and Ubuntu Linux; there is currently no macOS standalone build. Python and Git are required on the build computer. The generated file in the documented `dist` or `dist-linux` folder contains the Python runtime and can then be copied to a compatible target computer.
+Annotation Framework and ETDRS & QAF Analysis can be downloaded above or rebuilt locally. HROCT Inference must be built locally because its packaged files are too large for GitHub Releases. For a local build, the user installs Python and Git once, copies one command block from the selected repository, waits for the build to finish, and then opens the finished app by double-clicking it. No Python command is needed during normal use.
 
 Use a 64-bit computer, an internet connection, and at least 10 GB of free disk space. Python 3.11 is the shared recommended version. Each application is installed into its own virtual environment, so it does not modify other Python projects.
 
@@ -109,15 +109,15 @@ git --version
 
 macOS can be used for source development, but the current reproducible one-file release builds are validated only on Windows and Ubuntu Linux. A macOS application must be built and tested on a Mac; PyInstaller cannot create Windows, Linux, and macOS applications from one operating system.
 
-### Clone and build an application
+### Choose and build an application
 
-Choose one application below and follow its project-specific instructions. The commands create a local folder, an isolated Python environment, install dependencies, run tests where provided, and identify the finished file inside the project's `dist` or `dist-linux` folder.
+Choose one application below. Each linked section contains one complete command block for Windows and one for Ubuntu/Debian Linux. Copy the complete block into PowerShell or Terminal. The build script performs the technical setup automatically and opens the folder containing the finished, clickable application.
 
-- [Build HROCT Inference](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp#running-from-source)
-- [Build Annotation Framework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework#run-from-source)
-- [Build ETDRS & QAF Analysis](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App#running-from-source)
+- [Build HROCT Inference](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp#build-the-app)
+- [Build Annotation Framework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework#build-the-app-yourself)
+- [Build ETDRS & QAF Analysis](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App#build-the-app-yourself)
 
-Build on the target operating system: Windows builds must be created on Windows, Linux builds on Linux or WSL2, and macOS builds on macOS. Copy the commands exactly and wait for each command to finish before pasting the next one.
+Build on the target operating system: Windows apps must be built on Windows, and Linux apps on Linux. WSL can create a Linux file, but that file must be opened from a graphical Linux desktop, not from Windows PowerShell. There is currently no validated macOS application build.
 
 Every application processes research data locally. Project-specific requirements, launch commands, build commands, and output locations are documented in the linked README.
 
