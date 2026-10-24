@@ -46,15 +46,15 @@ The recommended research workflow is **HROCT Inference → Annotation Framework 
 
 | Step | Application | Repository | Windows | Linux | macOS |
 | --- | --- | --- | --- | --- | --- |
-| 1. Segmentation | HROCT Inference | [HROCTInferenceApp](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp) | Self-build: CPU or NVIDIA GPU | Self-build: NVIDIA GPU with CPU fallback | No standalone build; experimental CPU source use only |
-| 2. Review and correction | Annotation Framework | [AnnotationFramework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework) | Release download or self-build | Release download or self-build | No standalone build; experimental source use only |
-| 3. Quantitative analysis | ETDRS & QAF Analysis | [ETDRS_QAF_App](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App) | Release download or self-build | Release download or self-build | No standalone build; experimental source use only |
+| 1. Segmentation | HROCT Inference | [HROCTInferenceApp](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp) | Self-build: CPU or NVIDIA GPU | Self-build: NVIDIA GPU with CPU fallback | Self-build: CPU |
+| 2. Review and correction | Annotation Framework | [AnnotationFramework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework) | Release download or self-build | Release download or self-build | Self-build |
+| 3. Quantitative analysis | ETDRS & QAF Analysis | [ETDRS_QAF_App](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App) | Release download or self-build | Release download or self-build | Self-build |
 
 ## Windows and Linux downloads
 
 - [Annotation Framework releases](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework/releases/latest) provide the Windows `.exe` and Linux executable.
 - [ETDRS & QAF Analysis releases](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App/releases/latest) provide the Windows `.exe` and Linux executable.
-- HROCT Inference must be built from source. Its packaged model and runtime files exceed GitHub's per-file release-asset limit, so the repository provides reproducible Windows and Linux build commands instead of downloadable binaries.
+- HROCT Inference must be built locally. Its packaged model and runtime files exceed GitHub's per-file release-asset limit, so the repository provides one-command Windows, Linux, and macOS build scripts instead of downloadable binaries.
 
 ## Before the first build
 
@@ -107,7 +107,7 @@ python3 --version
 git --version
 ```
 
-macOS can be used for source development, but the current reproducible one-file release builds are validated only on Windows and Ubuntu Linux. A macOS application must be built and tested on a Mac; PyInstaller cannot create Windows, Linux, and macOS applications from one operating system.
+The repository-specific commands build a clickable `.app` on the Mac itself. HROCT Inference uses its CPU edition on macOS. PyInstaller cannot create a macOS app from Windows or Linux.
 
 ### Choose and build an application
 
@@ -117,7 +117,7 @@ Choose one application below. Each linked section contains one complete command 
 - [Build Annotation Framework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework#build-the-app-yourself)
 - [Build ETDRS & QAF Analysis](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App#build-the-app-yourself)
 
-Build on the target operating system: Windows apps must be built on Windows, and Linux apps on Linux. WSL can create a Linux file, but that file must be opened from a graphical Linux desktop, not from Windows PowerShell. There is currently no validated macOS application build.
+Build on the target operating system: Windows apps on Windows, Linux apps on Linux, and macOS apps on macOS. WSL can create a Linux file, but that file must be opened from a graphical Linux desktop, not from Windows PowerShell.
 
 Every application processes research data locally. Project-specific requirements, launch commands, build commands, and output locations are documented in the linked README.
 
