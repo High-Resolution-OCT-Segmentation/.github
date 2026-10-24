@@ -46,13 +46,19 @@ The recommended research workflow is **HROCT Inference → Annotation Framework 
 
 | Step | Application | Repository | Windows | Linux | macOS |
 | --- | --- | --- | --- | --- | --- |
-| 1. Segmentation | HROCT Inference | [HROCTInferenceApp](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp) | CPU and NVIDIA GPU build | NVIDIA GPU build with CPU fallback | No standalone build; experimental CPU source use only |
-| 2. Review and correction | Annotation Framework | [AnnotationFramework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework) | Standalone build | Standalone build | No standalone build; experimental source use only |
-| 3. Quantitative analysis | ETDRS & QAF Analysis | [ETDRS_QAF_App](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App) | Standalone build | Standalone build | No standalone build; experimental source use only |
+| 1. Segmentation | HROCT Inference | [HROCTInferenceApp](https://github.com/High-Resolution-OCT-Segmentation/HROCTInferenceApp) | Self-build: CPU or NVIDIA GPU | Self-build: NVIDIA GPU with CPU fallback | No standalone build; experimental CPU source use only |
+| 2. Review and correction | Annotation Framework | [AnnotationFramework](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework) | Release download or self-build | Release download or self-build | No standalone build; experimental source use only |
+| 3. Quantitative analysis | ETDRS & QAF Analysis | [ETDRS_QAF_App](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App) | Release download or self-build | Release download or self-build | No standalone build; experimental source use only |
+
+## Windows and Linux downloads
+
+- [Annotation Framework releases](https://github.com/High-Resolution-OCT-Segmentation/AnnotationFramework/releases/latest) provide the Windows `.exe` and Linux executable.
+- [ETDRS & QAF Analysis releases](https://github.com/High-Resolution-OCT-Segmentation/ETDRS_QAF_App/releases/latest) provide the Windows `.exe` and Linux executable.
+- HROCT Inference must be built from source. Its packaged model and runtime files exceed GitHub's per-file release-asset limit, so the repository provides reproducible Windows and Linux build commands instead of downloadable binaries.
 
 ## Building from source: first-time setup
 
-Supported standalone build workflows exist for Windows and Ubuntu Linux. There is currently no macOS standalone build. The instructions below explain how to clone a repository and create the Windows or Linux application locally. Python and Git are required on the build computer. The generated file in the documented `dist` or `dist-linux` folder contains the Python runtime and can then be copied to a compatible target computer.
+Annotation Framework and ETDRS & QAF Analysis can be downloaded above or rebuilt locally. HROCT Inference must be built locally because its packaged files are too large for GitHub Releases. Supported standalone build workflows exist for Windows and Ubuntu Linux; there is currently no macOS standalone build. Python and Git are required on the build computer. The generated file in the documented `dist` or `dist-linux` folder contains the Python runtime and can then be copied to a compatible target computer.
 
 Use a 64-bit computer, an internet connection, and at least 10 GB of free disk space. Python 3.11 is the shared recommended version. Each application is installed into its own virtual environment, so it does not modify other Python projects.
 
